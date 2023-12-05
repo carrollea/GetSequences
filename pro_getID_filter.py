@@ -32,7 +32,7 @@ with open(fa2, 'r') as fin:
 #Now go through the fasta file and change the ID to something smaller and select for sequences of a certain length
 with open(fa1) as handle: 
     for record in SeqIO.parse(handle, "fasta"):
-        if record.id in ID and len(record.seq) > x and len(record.seq) < y and record.seq[0]=='M':       #only take sequences of a certain length 
+        if record.id in ID and len(record.seq) > x and len(record.seq) < y and record.seq[0]=='M':       #only take sequences of a certain length that have a start codon 
 #            print(record.seq[0:3])
             ID_fasta.append(record) 
             New_ID.append(record.id)
