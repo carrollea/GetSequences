@@ -12,7 +12,7 @@ The pro_getID_filter is for protein sequences and filters for those that have a 
 ## Inputs 
 
 - fasta -fasta file that contains the sequences of interest along with sequences you don't need
-- ID file a file containing IDs corresponding to your sequences of interest. Must be the same as the IDs used in the fasta file.
+- ID file -a file containing IDs corresponding to your sequences of interest. Must be the same as the IDs used in the fasta file.
 - min length -the minimum length of your sequence
 - max length -the maximum length of your sequence 
 
