@@ -3,13 +3,10 @@ import re
 import Bio
 from Bio import SeqIO
 #This code gets sequences of interest from a fasta file. 
-#A file containing the IDs of the sequences of interest are provided along with a fasta file for the genome
+#A file containing the IDs of the sequences of interest is provided along with a fasta file for the genome
 #The program will only return fasta files that are within the provided length range
 #The program will produce two outputs. 1) a fasta file of the sequences of interest and 2) a file of only the ids of the sequences
-#Note: biopython installed on our lab anaconda
-#Can load by using the following in the command line before using the program
-#module use -a /projects/academic/zhenw/programs/modulefiles/Allluas
-#module load anaconda3
+
 #validating input
 if len(sys.argv) != 5:
     print("Usage: python3 ProFilter.py [fasta] [ID file] [min length] [max length]")
@@ -32,10 +29,10 @@ with open(fa2, 'r') as fin:
         ID.append(new_line[0])
 
 
-#Now go through the fasta file and change the ID to something smaller and select for sequeences of a certian length
+#Now go through the fasta file and change the ID to something smaller and select for sequences of a certain length
 with open(fa1) as handle: 
     for record in SeqIO.parse(handle, "fasta"):
-        if record.id in ID and len(record.seq) > x and len(record.seq) < y and record.seq[0]=='M':       #only take seqeunces of a certain length 
+        if record.id in ID and len(record.seq) > x and len(record.seq) < y and record.seq[0]=='M':       #only take sequences of a certain length 
 #            print(record.seq[0:3])
             ID_fasta.append(record) 
             New_ID.append(record.id)
@@ -43,7 +40,7 @@ with open(fa1) as handle:
    
 #print(ID_fasta)   
       
-#Now will output a fasta file from the ID_fasta sequecnes. 
+#Now will output a fasta file from the ID_fasta sequences. 
 SeqIO.write(ID_fasta, "out.fasta", "fasta")
 
 with open(r'New_IDs.txt', 'w') as f:
